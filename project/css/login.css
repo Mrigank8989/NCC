@@ -1,0 +1,134 @@
+/* Login Page Styles */
+.login-container {
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xl);
+  margin-top: var(--spacing-xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container h2 {
+  text-align: center;
+  color: var(--primary-blue);
+  margin-bottom: var(--spacing-lg);
+  position: relative;
+  padding-bottom: var(--spacing-md);
+}
+
+.login-container h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 3px;
+  background-color: var(--accent-blue);
+}
+
+.login-container h3 {
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.login-form, 
+.register-form {
+  transition: transform var(--transition-medium), opacity var(--transition-medium);
+}
+
+.login-form.hidden, 
+.register-form.hidden {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--light-blue);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.login-container::after {
+  content: '';
+  position: absolute;
+  bottom: -50px;
+  left: -50px;
+  width: 100px;
+  height: 100px;
+  background-color: var(--light-blue);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+#loginForm,
+#registerForm {
+  position: relative;
+  z-index: 1;
+}
+
+.register-link,
+.login-link {
+  text-align: center;
+  margin-top: var(--spacing-lg);
+}
+
+.register-link a,
+.login-link a {
+  color: var(--accent-blue);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.register-link a:hover,
+.login-link a:hover {
+  color: var(--secondary-blue);
+  text-decoration: underline;
+}
+
+/* Animation for form switching */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.login-form:not(.hidden),
+.register-form:not(.hidden) {
+  animation: slideInRight var(--transition-medium);
+}
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+  .login-container {
+    padding: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+  }
+}

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel - NCC Air Wing Quiz Portal</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+  <div class="container">
+    <header class="main-header">
+      <div class="logo-container">
+        <img src="assets/ncc-logo.png" alt="NCC Logo" class="ncc-logo">
+        <h1>NCC Air Wing</h1>
+        <h2>Jharkhand Air Squadron</h2>
+      </div>
+      <div class="admin-info">
+        <span>Admin Panel</span>
+        <button id="logoutBtn" class="btn btn-outline">Logout</button>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <div class="admin-container">
+        <h2>Vayu Sainik Camp Quiz Administration</h2>
+        
+        <div class="admin-tabs">
+          <button class="tab-btn active" data-tab="userScores">User Scores</button>
+          <button class="tab-btn" data-tab="userManagement">User Management</button>
+          <button class="tab-btn" data-tab="quizStatistics">Quiz Statistics</button>
+        </div>
+
+        <div class="tab-content active" id="userScores">
+          <h3>All User Scores</h3>
+          <div class="filter-controls">
+            <div class="filter-group">
+              <label for="userFilter">Filter by User:</label>
+              <select id="userFilter">
+                <option value="all">All Users</option>
+                <!-- Users will be dynamically added here -->
+              </select>
+            </div>
+            <div class="filter-group">
+              <label for="difficultyFilter">Filter by Difficulty:</label>
+              <select id="difficultyFilter">
+                <option value="all">All Difficulties</option>
+                <option value="easy">Easy</option>
+                <option value="intermediate">Intermediate</option>
+                <option value="hard">Hard</option>
+              </select>
+            </div>
+            <button id="applyFilterBtn" class="btn btn-primary">Apply Filters</button>
+          </div>
+          <div class="scores-table-container">
+            <table class="scores-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Quiz Set</th>
+                  <th>Difficulty</th>
+                  <th>Score</th>
+                  <th>Percentage</th>
+                  <th>Date Taken</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="scoresTableBody">
+                <!-- Scores will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-content" id="userManagement">
+          <h3>User Management</h3>
+          <div class="user-list-container">
+            <table class="user-table">
+              <thead>
+                <tr>
+                  <th>Username</th>
+                  <th>Full Name</th>
+                  <th>Quizzes Taken</th>
+                  <th>Average Score</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="userTableBody">
+                <!-- Users will be dynamically added here -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="tab-content" id="quizStatistics">
+          <h3>Quiz Statistics</h3>
+          <div class="statistics-cards">
+            <div class="stat-card">
+              <h4>Total Quiz Attempts</h4>
+              <p id="totalAttempts">0</p>
+            </div>
+            <div class="stat-card">
+              <h4>Average Score</h4>
+              <p id="averageScore">0%</p>
+            </div>
+            <div class="stat-card">
+              <h4>Highest Score</h4>
+              <p id="highestScore">0%</p>
+            </div>
+            <div class="stat-card">
+              <h4>Registered Users</h4>
+              <p id="registeredUsers">0</p>
+            </div>
+          </div>
+          <div class="difficulty-stats">
+            <h4>Performance by Difficulty</h4>
+            <div class="stat-bars">
+              <div class="stat-bar-container">
+                <span class="stat-label">Easy</span>
+                <div class="stat-bar-wrapper">
+                  <div class="stat-bar" id="easyBar" style="width: 0%"></div>
+                  <span class="stat-value" id="easyAvg">0%</span>
+                </div>
+              </div>
+              <div class="stat-bar-container">
+                <span class="stat-label">Intermediate</span>
+                <div class="stat-bar-wrapper">
+                  <div class="stat-bar" id="intermediateBar" style="width: 0%"></div>
+                  <span class="stat-value" id="intermediateAvg">0%</span>
+                </div>
+              </div>
+              <div class="stat-bar-container">
+                <span class="stat-label">Hard</span>
+                <div class="stat-bar-wrapper">
+                  <div class="stat-bar" id="hardBar" style="width: 0%"></div>
+                  <span class="stat-value" id="hardAvg">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>National Cadet Corps - Air Wing &copy; 2025</p>
+      <p>Jharkhand Air Squadron</p>
+    </footer>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>
