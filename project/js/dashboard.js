@@ -7,6 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
   setupDifficultyButtons();
 });
 
+
+
 // Display user's recent scores
 function displayRecentScores() {
   const currentUser = auth.getCurrentUser();
