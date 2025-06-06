@@ -129,41 +129,6 @@ function logoutUser() {
 }
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  const auth = localStorage.getItem(AUTH_KEY);
-  const userDisplay = document.getElementById('userDisplay');
-  const logoutBtn = document.getElementById('logoutBtn');
-
-  // Redirect to login page if no user is logged in
-  if (!auth) {
-    window.location.href = 'index.html';
-    return;
-  }
-
-  try {
-    const user = JSON.parse(auth);
-    // Display user's full name
-    if (userDisplay) {
-      userDisplay.textContent = user.full_name || user.username || "User";
-    }
-
-    // Handle logout button
-    if (logoutBtn) {
-      logoutBtn.addEventListener("click", () => {
-        localStorage.removeItem(AUTH_KEY);
-        alert("You have been logged out.");
-        window.location.href = 'index.html';
-      });
-    }
-
-  } catch (err) {
-    console.error("Invalid auth data", err);
-    localStorage.removeItem(AUTH_KEY);
-    window.location.href = 'index.html';
-  }
-});
-
-
 function getCurrentUser() {
   if (!isLoggedIn()) {
     return null;
